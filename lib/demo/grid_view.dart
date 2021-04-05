@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:demo-flutter/res/listData.dart';
+import 'package:demo_flutter/res/listData.dart';
 
 class MyApp extends StatelessWidget {
   @override
