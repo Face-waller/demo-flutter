@@ -1,3 +1,6 @@
+/*用 Stack 或者 Stack 结合 Align 或者 Stack 结合 Positiond 来实
+现页面的定位布局*/
+
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
