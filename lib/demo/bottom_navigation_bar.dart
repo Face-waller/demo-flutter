@@ -41,11 +41,11 @@ class _TabsState extends State<Tabs> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.category),
-              label: "分类"             
+              label: "分类"
             ),            
             BottomNavigationBarItem(
                icon: Icon(Icons.settings),
-               label: "设置"                 
+               label: "设置"
             )
           ],
         ),
