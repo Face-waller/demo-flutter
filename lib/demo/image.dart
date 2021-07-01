@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
+class MyImg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Center(
       child: Container(
         /*child: Image.network(

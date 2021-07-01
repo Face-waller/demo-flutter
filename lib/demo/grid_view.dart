@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:demo_flutter/res/listData.dart';
 
-class MyApp extends StatelessWidget {
+class MyGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

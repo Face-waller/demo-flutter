@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {  
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home:Tabs()
-    );
-  }
-}
-
-
 class Tabs extends StatefulWidget {
-  Tabs({Key key}) : super(key: key);
+  Tabs({Key? key}) : super(key: key);
 
   _TabsState createState() => _TabsState();
 }
