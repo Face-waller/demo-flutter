@@ -1,34 +1,5 @@
 import 'package:flutter/material.dart';
 
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: RouterTestRoute(),
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       //注册路由表
-//       routes:{
-//         "test_name_route": (context) => NewRoute(),
-//         "test_scaffold": (context) => ScaffoldTest(),
-//         // 省略其它路由注册信息
-//       } ,
-//       // 注意，onGenerateRoute只会对命名路由生效,在打开命名路由时 "可能" 会被调用
-//       onGenerateRoute:(RouteSettings settings){
-//         return MaterialPageRoute(builder: (context){
-//           String? routeName = settings.name;
-//           print('名称=> ${routeName}');
-//           // 如果访问的路由页需要登录，但当前未登录，则直接返回登录页路由，
-//           // 引导用户登录；其它情况则正常打开路由。
-//         } as Widget Function(BuildContext));
-//       }
-//     );
-//   }
-//
-// }
-
 class NewRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
