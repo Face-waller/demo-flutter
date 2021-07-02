@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'demo/container/decorated_box.dart';
 import 'demo/container/size_limit.dart';
+import 'demo/container/transform.dart';
 import 'demo/other/route_scaffold.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
       "test_name_route": (context)=> NewRoute(),
       "test_size_limit": (context)=> MySize(),
       "test_decorated": (context)=> MyDecorated(),
+      "test_transform": (context)=> MyTransform(),
 
     };
 
@@ -106,6 +108,7 @@ class _RouterTestRoute extends StatelessWidget {
         ),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_size_limit");}, child: Text("限制型容器")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_decorated");}, child: Text("装饰类容器")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_transform");}, child: Text("变换容器")),
       ]
     );
   }
