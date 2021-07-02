@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'demo/container/decorated_box.dart';
+import 'demo/container/size_limit.dart';
 import 'demo/other/route_scaffold.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
 import 'demo/layout/wrap.dart';
 import 'demo/basic_component/button.dart';
-import 'demo/other/aspect_ratio.dart';
 import 'demo/layout/row.dart';
 import 'demo/layout/column.dart';
 import 'demo/layout/stack.dart';
@@ -29,13 +30,14 @@ class MyApp extends StatelessWidget {
       "test_stack": (context)=> MyStack(),
       "test_column": (context)=> MyColumn(),
       "test_row": (context)=> MyRow(),
-      "test_aspect_ratio": (context)=> MyAspectRatio(),
       "test_button": (context)=> MyButton(),
       "test_wrap": (context)=> LayoutDemo(),
       "test_ful_widget": (context)=> HomePage(),
       "test_appbar": (context)=> Tabs(),
       "test_scaffold": (context)=> ScaffoldTest(),
       "test_name_route": (context)=> NewRoute(),
+      "test_size_limit": (context)=> MySize(),
+      "test_decorated": (context)=> MyDecorated(),
 
     };
 
@@ -75,7 +77,6 @@ class _RouterTestRoute extends StatelessWidget {
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_stack");}, child: Text("stack测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_column");}, child: Text("column测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_row");}, child: Text("row测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_aspect_ratio");}, child: Text("ratio测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_button");}, child: Text("button测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_wrap");}, child: Text("wrap测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ful_widget");}, child: Text("fulWidget测试")),
@@ -103,7 +104,8 @@ class _RouterTestRoute extends StatelessWidget {
           },
           child: Text("打开提示页"),
         ),
-
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_size_limit");}, child: Text("限制型容器")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_decorated");}, child: Text("装饰类容器")),
       ]
     );
   }
