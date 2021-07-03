@@ -1,9 +1,10 @@
+import 'package:demo_flutter/demo/container/scaffold.dart';
 import 'package:flutter/material.dart';
 
 import 'demo/container/decorated_box.dart';
 import 'demo/container/size_limit.dart';
 import 'demo/container/transform.dart';
-import 'demo/other/route_scaffold.dart';
+import 'demo/other/route.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
 import 'demo/layout/wrap.dart';
@@ -35,11 +36,11 @@ class MyApp extends StatelessWidget {
       "test_wrap": (context)=> LayoutDemo(),
       "test_ful_widget": (context)=> HomePage(),
       "test_appbar": (context)=> Tabs(),
-      "test_scaffold": (context)=> ScaffoldTest(),
       "test_name_route": (context)=> NewRoute(),
       "test_size_limit": (context)=> MySize(),
       "test_decorated": (context)=> MyDecorated(),
       "test_transform": (context)=> MyTransform(),
+      "test_scaffold": (context)=> MyScaffold(),
 
     };
 
@@ -109,6 +110,8 @@ class _RouterTestRoute extends StatelessWidget {
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_size_limit");}, child: Text("限制型容器")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_decorated");}, child: Text("装饰类容器")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_transform");}, child: Text("变换容器")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_scaffold");}, child: Text("scaffold容器")),
+
       ]
     );
   }

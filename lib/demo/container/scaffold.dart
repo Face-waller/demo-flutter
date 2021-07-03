@@ -1,23 +1,36 @@
+/*
+AppBar({
+  Key key,
+  this.leading, //导航栏最左侧Widget，常见为抽屉菜单按钮或返回按钮。
+  this.automaticallyImplyLeading = true, //如果leading为null，是否自动实现默认的leading按钮
+  this.title,// 页面标题
+  this.actions, // 导航栏右侧菜单
+  this.bottom, // 导航栏底部菜单，通常为Tab按钮组
+  this.elevation = 4.0, // 导航栏阴影
+  this.centerTitle, //标题是否居中
+  this.backgroundColor,
+  ...   //其它属性见源码注释
+})
+
+Tab({
+  Key key,
+  this.text, // 菜单文本
+  this.icon, // 菜单图标
+  this.child, // 自定义组件样式
+})
+ */
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class NewRoute extends StatelessWidget {
+class MyScaffold extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    //获取路由参数
-    var args = ModalRoute.of(context)!.settings.arguments!;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("命名路由 参数传递"),
-      ),
-      body: Center(
-        child: Text(args as String),
-      ),
-    );
-  }
+  _ScaffoldRouteState createState() => _ScaffoldRouteState();
 }
 
-class ScaffoldTest extends StatelessWidget {
+class _ScaffoldRouteState extends State<MyScaffold> {
+  int _selectedIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,39 +47,30 @@ class ScaffoldTest extends StatelessWidget {
           );
         }),
       ),
+      bottomNavigationBar: BottomNavigationBar( // 底部导航
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.business), label: 'Business'),
+          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
+        ],
+        currentIndex: _selectedIndex,
+        fixedColor: Colors.blue,
+        onTap: _onItemTapped,
+      ),
+      floatingActionButton: FloatingActionButton( //悬浮按钮
+          child: Icon(Icons.add),
+          onPressed:_onAdd
+      ),
     );
   }
 
-}
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
-class TipRoute extends StatelessWidget {
-  TipRoute({
-    Key? key,
-    required this.text,  // 接收一个text参数
-  }) : super(key: key);
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("提示"),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(18),
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Text(text),
-              RaisedButton(
-                onPressed: () => Navigator.pop(context, "我是返回值"),
-                child: Text("返回"),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+  void _onAdd(){
   }
 }
 
