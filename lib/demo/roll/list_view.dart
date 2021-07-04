@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
+class MyListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    return MaterialApp(
+        home: Scaffold(
+        appBar: AppBar(
+        title: Text('flutter demo')
+    ),
+    body: MyList(),
+    )
+    );
+  }
+
+}
+
+class MyList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: ListView(
         scrollDirection: Axis.horizontal,
