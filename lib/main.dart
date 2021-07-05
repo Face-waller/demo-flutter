@@ -1,6 +1,7 @@
 import 'package:demo_flutter/demo/container/scaffold.dart';
 import 'package:flutter/material.dart';
 
+import 'demo/basic_component/radio.dart';
 import 'demo/container/decorated_box.dart';
 import 'demo/container/size_limit.dart';
 import 'demo/container/transform.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
       "test_column": (context)=> MyColumn(),
       "test_row": (context)=> MyRow(),
       "test_button": (context)=> MyButton(),
+      "test_radio": (context)=> MyRadio(),
       "test_wrap": (context)=> LayoutDemo(),
       "test_ful_widget": (context)=> HomePage(),
       "test_appbar": (context)=> Tabs(),
@@ -87,6 +89,7 @@ class _RouterTestRoute extends StatelessWidget {
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_column");}, child: Text("column测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_row");}, child: Text("row测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_button");}, child: Text("button测试")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_radio");}, child: Text("radio测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_wrap");}, child: Text("wrap测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ful_widget");}, child: Text("fulWidget测试")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_appbar");}, child: Text("appBar测试")),
