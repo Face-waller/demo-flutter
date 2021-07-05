@@ -4,12 +4,9 @@ import 'package:demo_flutter/res/listData.dart';
 class MyGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text('Flutter Demo'),),
-        body: LayoutContent(),
-      )
+    return Scaffold(
+      appBar: AppBar(title: Text('Flutter Demo'),),
+      body: LayoutContent(),
     );
   }
 }
