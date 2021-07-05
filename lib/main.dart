@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'demo/container/decorated_box.dart';
 import 'demo/container/size_limit.dart';
 import 'demo/container/transform.dart';
+import 'demo/functionality/will_pop_scope.dart';
 import 'demo/other/route.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
       "test_scaffold": (context)=> MyScaffold(),
       "test_single_child_scroll_view": (context)=> MySingleChildScrollView(),
       "test_list_view": (context)=> MyListView(),
+      "test_will_pop": (context)=> MyWillPopScope(),
 
     };
 
@@ -117,6 +119,7 @@ class _RouterTestRoute extends StatelessWidget {
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_scaffold");}, child: Text("scaffold容器")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_single_child_scroll_view");}, child: Text("singleChildScrollView")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_list_view");}, child: Text("listView")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_will_pop");}, child: Text("WillPopScope")),
 
       ]
     );
