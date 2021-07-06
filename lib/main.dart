@@ -1,7 +1,9 @@
 import 'package:demo_flutter/demo/container/scaffold.dart';
 import 'package:flutter/material.dart';
 
+import 'demo/basic_component/check_box.dart';
 import 'demo/basic_component/radio.dart';
+import 'demo/basic_component/slider.dart';
 import 'demo/container/decorated_box.dart';
 import 'demo/container/size_limit.dart';
 import 'demo/container/transform.dart';
@@ -49,6 +51,8 @@ class MyApp extends StatelessWidget {
       "test_single_child_scroll_view": (context)=> MySingleChildScrollView(),
       "test_list_view": (context)=> MyListView(),
       "test_will_pop": (context)=> MyWillPopScope(),
+      "test_check_box": (context)=> MyCheckBox(),
+      "test_slider": (context)=> MySlider(),
 
     };
 
@@ -123,6 +127,8 @@ class _RouterTestRoute extends StatelessWidget {
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_single_child_scroll_view");}, child: Text("singleChildScrollView")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_list_view");}, child: Text("listView")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_will_pop");}, child: Text("WillPopScope")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_check_box");}, child: Text("CheckBox")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_slider");}, child: Text("Slider")),
 
       ]
     );
