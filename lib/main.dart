@@ -9,6 +9,10 @@ import 'demo/basic_component/switch.dart';
 import 'demo/container/decorated_box.dart';
 import 'demo/container/size_limit.dart';
 import 'demo/container/transform.dart';
+import 'demo/functionality/date_picker.dart';
+import 'demo/functionality/ios_date_picker.dart';
+import 'demo/functionality/ios_time_picker.dart';
+import 'demo/functionality/time_picker.dart';
 import 'demo/functionality/will_pop_scope.dart';
 import 'demo/other/route.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
@@ -57,7 +61,10 @@ class MyApp extends StatelessWidget {
       "test_single_child_scroll_view": (context)=> MySingleChildScrollView(),
       "test_list_view": (context)=> MyListView(),
       "test_will_pop": (context)=> MyWillPopScope(),
-
+      "test_date_picker": (context)=> MyDatePicker(),
+      "test_time_picker": (context)=> MyTimePicker(),
+      "test_ios_date_picker": (context)=> MyIosDatePicker(),
+      "test_ios_time_picker": (context)=> MyIosTimePicker(),
     };
 
     return MaterialApp(
@@ -123,7 +130,7 @@ class _RouterTestRoute extends StatelessWidget {
                 fullscreenDialog: false,
               ),
             );
-            //输出`TipRoute`路由返回结果
+            //输出`TipRoute`路由返回结果r
             print("路由返回值: $result");
           },
           child: Text("打开提示页"),
@@ -135,7 +142,10 @@ class _RouterTestRoute extends StatelessWidget {
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_single_child_scroll_view");}, child: Text("singleChildScrollView")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_list_view");}, child: Text("listView")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_will_pop");}, child: Text("WillPopScope")),
-
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_date_picker");}, child: Text("DatePicker")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_time_picker");}, child: Text("TimePicker")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_date_picker");}, child: Text("IosDatePicker")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_time_picker");}, child: Text("IosTimePicker")),
       ]
     );
   }
