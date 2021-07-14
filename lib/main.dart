@@ -67,7 +67,22 @@ class MyApp extends StatelessWidget {
     };
 
     return MaterialApp(
-        home: _RouterTestRoute(),
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('首页'),
+            leading: Builder(builder: (context) {
+              return IconButton(
+                icon: Icon(Icons.menu, color: Colors.white), //自定义图标
+                onPressed: () {
+                  // 打开抽屉菜单
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            }),
+          ),
+          drawer: new _HomeDrawer(), //抽屉
+          body: Home(),
+        ),
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.green,
@@ -86,7 +101,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class _RouterTestRoute extends StatelessWidget {
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
@@ -149,6 +164,59 @@ class _RouterTestRoute extends StatelessWidget {
     );
   }
 }
+
+class _HomeDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: MediaQuery.removePadding(
+        context: context,
+        //移除抽屉菜单顶部默认留白
+        removeTop: true,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 38.0),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: ClipOval(
+                      child: Image.asset(
+                        "images/a.jpeg",
+                        width: 80,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    "Wendux",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  ListTile(
+                    // leading: const Icon(Icons.add),
+                    title: const Text('Add account'),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.settings),
+                    title: const Text('Manage accounts'),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 void main(){
   runApp(MyApp());

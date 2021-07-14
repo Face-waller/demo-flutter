@@ -39,7 +39,7 @@ class _ScaffoldRouteState extends State<MyScaffold> {
         title: Text("App Name"),
         leading: Builder(builder: (context) {
           return IconButton(
-            icon: Icon(Icons.dashboard, color: Colors.white), //自定义图标
+            icon: Icon(Icons.menu, color: Colors.white), //自定义图标
             onPressed: () {
               // 打开抽屉菜单
               Scaffold.of(context).openDrawer();
@@ -113,7 +113,7 @@ class _MyDrawer extends StatelessWidget {
               child: ListView(
                 children: <Widget>[
                   ListTile(
-                    leading: const Icon(Icons.add),
+                    // leading: const Icon(Icons.add),
                     title: const Text('Add account'),
                   ),
                   ListTile(
