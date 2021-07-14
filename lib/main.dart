@@ -7,7 +7,12 @@ import 'demo/basic_component/slider.dart';
 import 'demo/container/decorated_box.dart';
 import 'demo/container/size_limit.dart';
 import 'demo/container/transform.dart';
+import 'demo/functionality/date_picker.dart';
+import 'demo/functionality/ios_date_picker.dart';
+import 'demo/functionality/ios_time_picker.dart';
+import 'demo/functionality/time_picker.dart';
 import 'demo/functionality/will_pop_scope.dart';
+import 'demo/gesture/gesture_detector.dart';
 import 'demo/other/route.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
@@ -134,6 +139,11 @@ class _RouterTestRoute extends StatelessWidget {
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_will_pop");}, child: Text("WillPopScope")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_check_box");}, child: Text("CheckBox")),
         ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_slider");}, child: Text("Slider")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_gesture_detector");}, child: Text("Gesture")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_date_picker");}, child: Text("DatePicker")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_time_picker");}, child: Text("TimePicker")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_date_picker");}, child: Text("IosDatePicker")),
+        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_time_picker");}, child: Text("IosTimePicker"))
 
       ]
     );
