@@ -8,10 +8,9 @@ Widget redBox=DecoratedBox(
 class MySize extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
-          title: Text('size demo')
+            title: Text('size demo')
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,41 +25,40 @@ class MySize extends StatelessWidget {
                   maxHeight: 100, // 最大高度
                 ),
                 child: Container(
-                    height: 200.0, 
-                    child: redBox 
+                    height: 200.0,
+                    child: redBox
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(16),
-              child: SizedBox(
-                width: 100.0,
-                height: 100.0,
-                child: redBox
-              )
+                padding: EdgeInsets.all(16),
+                child: SizedBox(
+                    width: 100.0,
+                    height: 100.0,
+                    child: redBox
+                )
             ),
             Padding(
-              padding: EdgeInsets.all(16),
-              child: ConstrainedBox(
-                  constraints: BoxConstraints(minWidth: 60.0, minHeight: 100.0),  //父
-                  child: UnconstrainedBox( //“去除”父级限制
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 90.0, minHeight: 20.0),//子
-                      child: redBox,
-                    ),
-                  )
-              )
+                padding: EdgeInsets.all(16),
+                child: ConstrainedBox(
+                    constraints: BoxConstraints(minWidth: 60.0, minHeight: 100.0),  //父
+                    child: UnconstrainedBox( //“去除”父级限制
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(minWidth: 90.0, minHeight: 20.0),//子
+                        child: redBox,
+                      ),
+                    )
+                )
             ),
             Padding(
-              padding: EdgeInsets.all(16),
-              child: AspectRatio(
-                aspectRatio: 2.0/1.0,
-                child: redBox,
-              )
+                padding: EdgeInsets.all(16),
+                child: AspectRatio(
+                  aspectRatio: 2.0/1.0,
+                  child: redBox,
+                )
             ),
           ],
         )
-      )
     );
   }
 }

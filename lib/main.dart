@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
     //注册路由表
     Map<String, Widget Function(BuildContext)> routes = {
       "test_text": (context)=> MyText(),
-      "test_container": (context)=> MyCOntainer(),
+      "test_container": (context)=> MyContainer(),
       "test_img": (context)=> MyImg(),
       "test_grid_view": (context)=> MyGridView(),
       "test_padding": (context)=> MyPadding(),
@@ -104,119 +104,92 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 8.0, // 主轴(水平)方向间距
-      runSpacing: 4.0, // 纵轴（垂直）方向间距
-      alignment: WrapAlignment.start, //沿主轴方向居中
-      children: <Widget>[
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_text");}, child: Text("text测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_container");}, child: Text("container测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_img");}, child: Text("img测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_grid_view");}, child: Text("gridView测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_padding");}, child: Text("padding测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_stack");}, child: Text("stack测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_column");}, child: Text("column测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_row");}, child: Text("row测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_button");}, child: Text("button测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_radio");}, child: Text("radio测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_wrap");}, child: Text("wrap测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ful_widget");}, child: Text("fulWidget测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_appbar");}, child: Text("appBar测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_scaffold",arguments: '测试含有抽屉!');}, child: Text("Scaffold测试")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_name_route", arguments: 'hi 命名路由!');}, child: Text("命名路由跳转")),
-        ElevatedButton(
-          onPressed: () async {
-            // 打开`TipRoute`，并等待返回结果
-            var result = await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return TipRoute(
-                    // 路由参数
-                    text: "我是提示xxxx",
-                  );
-                },
-                maintainState: true,
-                fullscreenDialog: false,
-              ),
-            );
-            //输出`TipRoute`路由返回结果
-            print("路由返回值: $result");
-          },
-          child: Text("打开提示页"),
-        ),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_size_limit");}, child: Text("限制型容器")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_decorated");}, child: Text("装饰类容器")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_transform");}, child: Text("变换容器")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_scaffold");}, child: Text("scaffold容器")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_single_child_scroll_view");}, child: Text("singleChildScrollView")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_list_view");}, child: Text("listView")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_will_pop");}, child: Text("WillPopScope")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_check_box");}, child: Text("CheckBox")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_slider");}, child: Text("Slider")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_gesture_detector");}, child: Text("Gesture")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_date_picker");}, child: Text("DatePicker")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_time_picker");}, child: Text("TimePicker")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_date_picker");}, child: Text("IosDatePicker")),
-        ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_time_picker");}, child: Text("IosTimePicker"))
-
-      ]
-    );
+    return Text('首页');
   }
 }
 
 class _HomeDrawer extends StatelessWidget {
+
+  List<Widget> _getList (context) {
+    return <Widget>[
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_text");}, child: Text("text测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_container");}, child: Text("container测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_img");}, child: Text("img测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_grid_view");}, child: Text("gridView测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_padding");}, child: Text("padding测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_stack");}, child: Text("stack测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_column");}, child: Text("column测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_row");}, child: Text("row测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_button");}, child: Text("button测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_radio");}, child: Text("radio测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_wrap");}, child: Text("wrap测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ful_widget");}, child: Text("fulWidget测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_appbar");}, child: Text("appBar测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_scaffold",arguments: '测试含有抽屉!');}, child: Text("Scaffold测试")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_name_route", arguments: 'hi 命名路由!');}, child: Text("命名路由跳转")),
+      ElevatedButton(
+        onPressed: () async {
+          // 打开`TipRoute`，并等待返回结果
+          var result = await Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return TipRoute(
+              // 路由参数
+              text: "我是提示xxxx",
+            );
+          }, maintainState: true, fullscreenDialog: false,),
+          );
+          //输出`TipRoute`路由返回结果
+          print("路由返回值: $result");
+        },
+        child: Text("打开提示页"),
+      ),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_size_limit");}, child: Text("限制型容器")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_decorated");}, child: Text("装饰类容器")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_transform");}, child: Text("变换容器")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_scaffold");}, child: Text("scaffold容器")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_single_child_scroll_view");}, child: Text("singleChildScrollView")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_list_view");}, child: Text("listView")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_will_pop");}, child: Text("WillPopScope")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_check_box");}, child: Text("CheckBox")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_slider");}, child: Text("Slider")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_gesture_detector");}, child: Text("Gesture")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_date_picker");}, child: Text("DatePicker")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_time_picker");}, child: Text("TimePicker")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_date_picker");}, child: Text("IosDatePicker")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_time_picker");}, child: Text("IosTimePicker"))
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
+    var list = _getList(context);
     return Drawer(
       child: MediaQuery.removePadding(
         context: context,
         //移除抽屉菜单顶部默认留白
         removeTop: true,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 38.0),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: ClipOval(
-                      child: Image.asset(
-                        "images/a.jpeg",
-                        width: 80,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    "Wendux",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
+          children: [
+            Container(
+              child: Text('目录')
             ),
             Expanded(
-              child: ListView(
-                children: <Widget>[
-                  ListTile(
-                    // leading: const Icon(Icons.add),
-                    title: const Text('Add account'),
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.settings),
-                    title: const Text('Manage accounts'),
-                  ),
-                ],
+              child: ListView.separated(
+                itemCount: list.length,
+                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
+                separatorBuilder: (BuildContext context, int index){
+                  return Padding(padding:  EdgeInsets.all(5));
+                },
+                itemBuilder: (BuildContext context, int index){
+                  return list[index];
+                },
               ),
-            ),
+            )
           ],
         ),
       ),
     );
   }
 }
-
 
 void main(){
   runApp(MyApp());
