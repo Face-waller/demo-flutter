@@ -223,109 +223,57 @@ class _HomeDrawer extends StatelessWidget {
         context: context,
         //移除抽屉菜单顶部默认留白
         removeTop: true,
-        child: Column(
-          children: [
-            Container(
-              child: Text('目录')
-            ),
-            Expanded(
-              child: ListView.separated(
-                itemCount: basic.length,
-                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
-                separatorBuilder: (BuildContext context, int index){
-                  return Text('基础组件');
-                },
-                itemBuilder: (BuildContext context, int index){
-                  return basic[index];
-                },
+        child: ListView(
+            scrollDirection: Axis.vertical,
+            padding: EdgeInsets.fromLTRB(20, 40, 20, 40),
+            children: [
+              Container(
+                  child: Text('目录')
               ),
-            ),
-            Container(
-                child: Text('容器组件')
-            ),
-            Expanded(
-              child: ListView.separated(
-                itemCount: container.length,
-                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
-                separatorBuilder: (BuildContext context, int index){
-                  return Padding(padding:  EdgeInsets.all(5));
-                },
-                itemBuilder: (BuildContext context, int index){
-                  return container[index];
-                },
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.greenAccent,
+                title: Text('基础组件'),
+                children: basic,
               ),
-            ),
-            Container(
-                child: Text('滚动组件')
-            ),
-            Expanded(
-              child: ListView.separated(
-                itemCount: roll.length,
-                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
-                separatorBuilder: (BuildContext context, int index){
-                  return Padding(padding:  EdgeInsets.all(5));
-                },
-                itemBuilder: (BuildContext context, int index){
-                  return roll[index];
-                },
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.greenAccent,
+                title: Text('容器组件'),
+                children: container,
               ),
-            ),
-            Container(
-                child: Text('布局组件')
-            ),
-            Expanded(
-              child: ListView.separated(
-                itemCount: layout.length,
-                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
-                separatorBuilder: (BuildContext context, int index){
-                  return Padding(padding:  EdgeInsets.all(5));
-                },
-                itemBuilder: (BuildContext context, int index){
-                  return layout[index];
-                },
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.greenAccent,
+                title: Text('滚动组件'),
+                children: roll,
               ),
-            ),
-            Text('功能性组件'),
-            Expanded(
-              child: ListView.separated(
-                itemCount: func.length,
-                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
-                separatorBuilder: (BuildContext context, int index){
-                  return Padding(padding:  EdgeInsets.all(5));
-                },
-                itemBuilder: (BuildContext context, int index){
-                  return func[index];
-                },
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.greenAccent,
+                title: Text('布局组件'),
+                children: layout,
               ),
-            ),
-            Text('手势组件'),
-            Expanded(
-              child: ListView.separated(
-                itemCount: gesture.length,
-                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
-                separatorBuilder: (BuildContext context, int index){
-                  return Padding(padding:  EdgeInsets.all(5));
-                },
-                itemBuilder: (BuildContext context, int index){
-                  return gesture[index];
-                },
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.greenAccent,
+                title: Text('功能性组件'),
+                children: func,
               ),
-            ),
-            Text('其他组件'),
-            Expanded(
-              child: ListView.separated(
-                itemCount: other.length,
-                padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
-                separatorBuilder: (BuildContext context, int index){
-                  return Padding(padding:  EdgeInsets.all(5));
-                },
-                itemBuilder: (BuildContext context, int index){
-                  return other[index];
-                },
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.greenAccent,
+                title: Text('手势组件'),
+                children: gesture,
               ),
-            ),
-          ],
-        ),
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.greenAccent,
+                title: Text('其他组件'),
+                children: other,
+              ),
+            ]
+        )
       ),
     );
   }
