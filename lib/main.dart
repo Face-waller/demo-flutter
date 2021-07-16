@@ -208,6 +208,15 @@ class _HomeDrawer extends StatelessWidget {
     ];
   }
 
+  List<Widget> _expandChildFormatter(List<Widget> oldList) {
+    return oldList.asMap().keys.map((i) =>
+      Padding(
+        padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+        child: oldList[i],
+      )
+    ).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     var basic = _getBasic(context);
@@ -225,52 +234,51 @@ class _HomeDrawer extends StatelessWidget {
         removeTop: true,
         child: ListView(
             scrollDirection: Axis.vertical,
-            padding: EdgeInsets.fromLTRB(20, 40, 20, 40),
             children: [
               Container(
                   child: Text('目录')
               ),
               ExpansionTile(
                 initiallyExpanded: true,
-                backgroundColor: Colors.greenAccent,
+                backgroundColor: Colors.black54,
                 title: Text('基础组件'),
-                children: basic,
+                children: _expandChildFormatter(basic),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
-                backgroundColor: Colors.greenAccent,
+                backgroundColor: Colors.black54,
                 title: Text('容器组件'),
-                children: container,
+                children: _expandChildFormatter(container),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
-                backgroundColor: Colors.greenAccent,
+                backgroundColor: Colors.black54,
                 title: Text('滚动组件'),
-                children: roll,
+                children: _expandChildFormatter(roll),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
-                backgroundColor: Colors.greenAccent,
+                backgroundColor: Colors.black54,
                 title: Text('布局组件'),
-                children: layout,
+                children: _expandChildFormatter(layout),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
-                backgroundColor: Colors.greenAccent,
+                backgroundColor: Colors.black54,
                 title: Text('功能性组件'),
-                children: func,
+                children: _expandChildFormatter(func),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
-                backgroundColor: Colors.greenAccent,
+                backgroundColor: Colors.black54,
                 title: Text('手势组件'),
-                children: gesture,
+                children: _expandChildFormatter(gesture),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
-                backgroundColor: Colors.greenAccent,
+                backgroundColor: Colors.black54,
                 title: Text('其他组件'),
-                children: other,
+                children: _expandChildFormatter(other),
               ),
             ]
         )
@@ -278,6 +286,8 @@ class _HomeDrawer extends StatelessWidget {
     );
   }
 }
+
+
 
 void main(){
   runApp(MyApp());
