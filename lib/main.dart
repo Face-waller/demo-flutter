@@ -13,7 +13,7 @@ import 'demo/functionality/ios_time_picker.dart';
 import 'demo/functionality/time_picker.dart';
 import 'demo/functionality/will_pop_scope.dart';
 import 'demo/gesture/gesture_detector.dart';
-import 'demo/other/route.dart';
+// import 'demo/other/route.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
 import 'demo/layout/wrap.dart';
@@ -28,6 +28,7 @@ import 'demo/container/container.dart';
 import 'demo/basic_component/text.dart';
 import 'demo/roll/list_view.dart';
 import 'demo/roll/single_child_scroll_view.dart';
+import 'demo/route/route.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -79,14 +80,19 @@ class MyApp extends StatelessWidget {
       "test_ios_time_picker": (context)=> MyIosTimePicker(),
     };
 
-    // 其他组件
-    Map<String, Widget Function(BuildContext)> routes_other = {
-      "test_name_route": (context)=> NewRoute(),
-    };
-
     // 手势
     Map<String, Widget Function(BuildContext)> routes_gesture = {
       "test_gesture_detector": (context)=> MyGestureDetector(),
+    };
+
+    // 路由
+    Map<String, Widget Function(BuildContext)> routes_route = {
+      "test_route": (context)=> MyRouteTest(),
+    };
+
+    // 其他组件
+    Map<String, Widget Function(BuildContext)> routes_other = {
+      // TODO
     };
 
 
@@ -99,6 +105,7 @@ class MyApp extends StatelessWidget {
     routes.addAll(routes_layout);
     routes.addAll(routes_functionality);
     routes.addAll(routes_gesture);
+    routes.addAll(routes_route);
     routes.addAll(routes_other);
 
     return MaterialApp(
@@ -201,11 +208,14 @@ class _HomeDrawer extends StatelessWidget {
 
     ];
   }
-  List<Widget> _getOther(context) {
+  List<Widget> _getRoute(context) {
     return <Widget> [
-      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_name_route", arguments: 'hi 命名路由!');}, child: Text("命名路由跳转")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_route");}, child: Text("Route路由")),
 
     ];
+  }
+  List<Widget> _getOther(context) {
+    return <Widget> [];
   }
 
   List<Widget> _expandChildFormatter(List<Widget> oldList) {
@@ -219,14 +229,6 @@ class _HomeDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var basic = _getBasic(context);
-    var container = _getContainer(context);
-    var roll = _getRoll(context);
-    var layout = _getLayout(context);
-    var func = _getFunctionality(context);
-    var gesture = _getGesture(context);
-    var other = _getOther(context);
-
     return Drawer(
       child: MediaQuery.removePadding(
         context: context,
@@ -242,43 +244,49 @@ class _HomeDrawer extends StatelessWidget {
                 initiallyExpanded: true,
                 backgroundColor: Colors.black54,
                 title: Text('基础组件'),
-                children: _expandChildFormatter(basic),
+                children: _expandChildFormatter(_getBasic(context)),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
                 backgroundColor: Colors.black54,
                 title: Text('容器组件'),
-                children: _expandChildFormatter(container),
+                children: _expandChildFormatter(_getContainer(context)),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
                 backgroundColor: Colors.black54,
                 title: Text('滚动组件'),
-                children: _expandChildFormatter(roll),
+                children: _expandChildFormatter(_getRoll(context)),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
                 backgroundColor: Colors.black54,
                 title: Text('布局组件'),
-                children: _expandChildFormatter(layout),
+                children: _expandChildFormatter(_getLayout(context)),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
                 backgroundColor: Colors.black54,
                 title: Text('功能性组件'),
-                children: _expandChildFormatter(func),
+                children: _expandChildFormatter(_getFunctionality(context)),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
                 backgroundColor: Colors.black54,
                 title: Text('手势组件'),
-                children: _expandChildFormatter(gesture),
+                children: _expandChildFormatter(_getGesture(context)),
+              ),
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.black54,
+                title: Text('路由测试'),
+                children: _expandChildFormatter(_getRoute(context)),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
                 backgroundColor: Colors.black54,
                 title: Text('其他组件'),
-                children: _expandChildFormatter(other),
+                children: _expandChildFormatter(_getOther(context)),
               ),
             ]
         )

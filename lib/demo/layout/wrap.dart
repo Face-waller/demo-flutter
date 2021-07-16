@@ -7,7 +7,7 @@ class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('FlutterDemo')),
+      appBar: AppBar(title: Text('Wrap测试')),
       body: Wrap(
         // 主轴的方向，默认水平
         direction: Axis.horizontal,
