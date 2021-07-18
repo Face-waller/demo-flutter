@@ -108,6 +108,14 @@ class MyApp extends StatelessWidget {
     routes.addAll(routes_route);
     routes.addAll(routes_other);
 
+    routes.addAll({
+      "/A": (context)=> APage(),
+      "/B": (context)=> BPage(),
+      "/C": (context)=> CPage(),
+      "/D": (context)=> DPage(),
+      "/E": (context)=> EPage(),
+    });
+
     return MaterialApp(
         home: Scaffold(
           appBar: AppBar(
