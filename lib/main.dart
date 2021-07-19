@@ -1,3 +1,4 @@
+import 'package:demo_flutter/demo/animation/animation_controller.dart';
 import 'package:demo_flutter/demo/container/scaffold.dart';
 import 'package:flutter/material.dart';
 
@@ -90,6 +91,11 @@ class MyApp extends StatelessWidget {
       "test_route": (context)=> MyRouteTest(),
     };
 
+    // 动画
+    Map<String, Widget Function(BuildContext)> routes_animation = {
+      "test_animation_controller": (context)=> MyAnimationController(),
+    };
+
     // 其他组件
     Map<String, Widget Function(BuildContext)> routes_other = {
       // TODO
@@ -106,6 +112,7 @@ class MyApp extends StatelessWidget {
     routes.addAll(routes_functionality);
     routes.addAll(routes_gesture);
     routes.addAll(routes_route);
+    routes.addAll(routes_animation);
     routes.addAll(routes_other);
 
     routes.addAll({
@@ -222,6 +229,12 @@ class _HomeDrawer extends StatelessWidget {
 
     ];
   }
+  List<Widget> _getAnimation(context) {
+    return <Widget> [
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_animation_controller");}, child: Text("动画")),
+
+    ];
+  }
   List<Widget> _getOther(context) {
     return <Widget> [];
   }
@@ -289,6 +302,12 @@ class _HomeDrawer extends StatelessWidget {
                 backgroundColor: Colors.black54,
                 title: Text('路由测试'),
                 children: _expandChildFormatter(_getRoute(context)),
+              ),
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.black54,
+                title: Text('动画组件'),
+                children: _expandChildFormatter(_getAnimation(context)),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
