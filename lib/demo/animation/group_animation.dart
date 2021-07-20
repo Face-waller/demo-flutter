@@ -22,9 +22,10 @@ class _MyGroupAnimationState extends State<MyGroupAnimation> with SingleTickerPr
   @override
   void initState() {
     _animationController =
-    AnimationController(duration: Duration(seconds: 5), vsync: this)
-      ..addListener((){setState(() {
-      });});
+    AnimationController(duration: Duration(seconds: 5), vsync: this)..addListener((){
+      setState(() {
+      });
+    });
     
     _colorAnimation1 = ColorTween(begin: Colors.red, end: Colors.blue).animate(CurvedAnimation(
       parent: _animationController,
@@ -55,7 +56,7 @@ class _MyGroupAnimationState extends State<MyGroupAnimation> with SingleTickerPr
     _animationController.forward();
     super.initState();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

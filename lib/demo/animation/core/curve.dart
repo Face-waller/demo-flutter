@@ -21,10 +21,9 @@ class _MyCurveState extends State<MyCurve> with  SingleTickerProviderStateMixin 
   void initState() {
     super.initState();
     _controller =
-    AnimationController(vsync: this, duration: Duration(milliseconds: 1000))
-      ..addListener(() {
-        setState(() {});
-      });
+    AnimationController(vsync: this, duration: Duration(milliseconds: 1000))..addListener(() {
+      setState(() {});
+    });
 
     _animation = Tween(begin: 100.0, end: 200.0)
         .chain(CurveTween(curve: /*Curves.decelerate*/ _StairsCurve(5)))
