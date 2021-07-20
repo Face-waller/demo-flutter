@@ -8,7 +8,13 @@ class MyAnimationController extends StatefulWidget {
 class _AnimationState extends State<MyAnimationController> with SingleTickerProviderStateMixin {
   double _size = 100;
 
+  Color _startColor = Colors.blue;
+  Color _endColor = Colors.red;
+  Color _color = Colors.blue;
+
   late AnimationController _controller;
+
+  late Animation<Color> _animation;
 
 
   //  动画的状态分为四种：
@@ -29,11 +35,13 @@ class _AnimationState extends State<MyAnimationController> with SingleTickerProv
     _controller = AnimationController(
         vsync: this,
         duration: Duration(milliseconds: 500),
-        lowerBound: 100,upperBound: 200
+        lowerBound: 0,upperBound: 1
     )..addListener((){
       setState(() {
         // _controller.value 当前动画的值，默认从 0 到 1, 可以通过参数形式设置最大值和最小值
-        _size = _controller.value;
+        _size = 100 + 100 * _controller.value;
+        // Flutter 中把这种从 0 -> 1 转换为 蓝色 -> 红色 行为称之为 Tween（映射）
+        _color = Color.lerp(_startColor, _endColor, _controller.value)!;
       });
     })..addStatusListener((status){
       if(status == AnimationStatus.completed){
@@ -64,7 +72,7 @@ class _AnimationState extends State<MyAnimationController> with SingleTickerProv
           child: Container(
             height: _size,
             width: _size,
-            color: Colors.blue,
+            color: _color,
             alignment: Alignment.center,
             child: Text('点我变大',style: TextStyle(color: Colors.white,fontSize: 18),),
           ),

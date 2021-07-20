@@ -1,7 +1,9 @@
-import 'package:demo_flutter/demo/animation/animation_controller.dart';
+import 'package:demo_flutter/demo/animation/core/animation_controller.dart';
 import 'package:demo_flutter/demo/container/scaffold.dart';
 import 'package:flutter/material.dart';
 
+import 'demo/animation/core/curve.dart';
+import 'demo/animation/core/tween.dart';
 import 'demo/basic_component/check_box.dart';
 import 'demo/basic_component/radio.dart';
 import 'demo/basic_component/slider.dart';
@@ -94,6 +96,8 @@ class MyApp extends StatelessWidget {
     // 动画
     Map<String, Widget Function(BuildContext)> routes_animation = {
       "test_animation_controller": (context)=> MyAnimationController(),
+      "test_tween": (context)=> MyTween(),
+      "test_curve": (context)=> MyCurve(),
     };
 
     // 其他组件
@@ -232,6 +236,9 @@ class _HomeDrawer extends StatelessWidget {
   List<Widget> _getAnimation(context) {
     return <Widget> [
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_animation_controller");}, child: Text("动画")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_tween");}, child: Text("Tween")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_curve");}, child: Text("Curve")),
+
 
     ];
   }
