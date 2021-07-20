@@ -14,6 +14,24 @@ class _MyTweenState extends State<MyTween> with SingleTickerProviderStateMixin{
   late Animation<Color?> _animation;
 
   @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 2000),
+    )..addListener((){
+    })..addStatusListener((status){
+    });
+    _animation = ColorTween(begin: Colors.blue, end: Colors.red).animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Tween'),),
@@ -38,23 +56,4 @@ class _MyTweenState extends State<MyTween> with SingleTickerProviderStateMixin{
       ),
     );
   }
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-        vsync: this,
-        duration: Duration(milliseconds: 2000),
-    )..addListener((){
-    })..addStatusListener((status){
-    });
-    _animation = ColorTween(begin: Colors.blue, end: Colors.red).animate(_controller);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
 }

@@ -2,9 +2,12 @@ import 'package:demo_flutter/demo/animation/core/animation_controller.dart';
 import 'package:demo_flutter/demo/container/scaffold.dart';
 import 'package:flutter/material.dart';
 
+import 'demo/animation/my_animated_explicit.dart';
+import 'demo/animation/my_animated_implicit.dart';
 import 'demo/animation/core/curve.dart';
 import 'demo/animation/core/tween.dart';
 import 'demo/animation/group_animation.dart';
+import 'demo/animation/my_animated_widget.dart';
 import 'demo/basic_component/check_box.dart';
 import 'demo/basic_component/radio.dart';
 import 'demo/basic_component/slider.dart';
@@ -100,6 +103,9 @@ class MyApp extends StatelessWidget {
       "test_tween": (context)=> MyTween(),
       "test_curve": (context)=> MyCurve(),
       "test_group_animation": (context)=> MyGroupAnimation(),
+      "test_my_pack_animation": (context)=> MyPackAnimatedWidget(),
+      "test_animated_implicit": (context)=> MyAnimatedImplicit(),
+      "test_animated_explicit": (context)=> MyAnimatedExplicit(),
     };
 
     // 其他组件
@@ -241,6 +247,9 @@ class _HomeDrawer extends StatelessWidget {
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_tween");}, child: Text("Tween")),
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_curve");}, child: Text("Curve")),
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_group_animation");}, child: Text("组合动画")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_my_pack_animation");}, child: Text("封装的组件")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_animated_implicit");}, child: Text("隐式动画组件")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_animated_explicit");}, child: Text("显式动画组件")),
 
     ];
   }
