@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'demo/animation/core/curve.dart';
 import 'demo/animation/core/tween.dart';
+import 'demo/animation/group_animation.dart';
 import 'demo/basic_component/check_box.dart';
 import 'demo/basic_component/radio.dart';
 import 'demo/basic_component/slider.dart';
@@ -98,6 +99,7 @@ class MyApp extends StatelessWidget {
       "test_animation_controller": (context)=> MyAnimationController(),
       "test_tween": (context)=> MyTween(),
       "test_curve": (context)=> MyCurve(),
+      "test_group_animation": (context)=> MyGroupAnimation(),
     };
 
     // 其他组件
@@ -238,7 +240,7 @@ class _HomeDrawer extends StatelessWidget {
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_animation_controller");}, child: Text("动画")),
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_tween");}, child: Text("Tween")),
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_curve");}, child: Text("Curve")),
-
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_group_animation");}, child: Text("组合动画")),
 
     ];
   }

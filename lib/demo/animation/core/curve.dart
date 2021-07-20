@@ -12,6 +12,26 @@ class _MyCurveState extends State<MyCurve> with  SingleTickerProviderStateMixin 
   late Animation _animation;
 
   @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller =
+    AnimationController(vsync: this, duration: Duration(milliseconds: 1000))
+      ..addListener(() {
+        setState(() {});
+      });
+
+    _animation = Tween(begin: 100.0, end: 200.0)
+        .chain(CurveTween(curve: /*Curves.decelerate*/ _StairsCurve(5)))
+        .animate(_controller);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Curve'),),
@@ -34,27 +54,6 @@ class _MyCurveState extends State<MyCurve> with  SingleTickerProviderStateMixin 
       ),
     );
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _controller =
-    AnimationController(vsync: this, duration: Duration(milliseconds: 1000))
-      ..addListener(() {
-        setState(() {});
-      });
-
-    _animation = Tween(begin: 100.0, end: 200.0)
-        .chain(CurveTween(curve: /*Curves.decelerate*/ _StairsCurve(5)))
-        .animate(_controller);
-  }
-
 }
 
 /// 自定义曲线
