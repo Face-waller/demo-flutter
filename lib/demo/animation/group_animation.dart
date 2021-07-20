@@ -24,7 +24,6 @@ class _MyGroupAnimationState extends State<MyGroupAnimation> with SingleTickerPr
     _animationController =
     AnimationController(duration: Duration(seconds: 5), vsync: this)
       ..addListener((){setState(() {
-      
       });});
     
     _colorAnimation1 = ColorTween(begin: Colors.red, end: Colors.blue).animate(CurvedAnimation(
