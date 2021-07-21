@@ -25,6 +25,7 @@ import 'demo/gesture/gesture_detector.dart';
 // import 'demo/other/route.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
+import 'demo/gesture/ink_well.dart';
 import 'demo/layout/wrap.dart';
 import 'demo/basic_component/button.dart';
 import 'demo/layout/row.dart';
@@ -92,6 +93,7 @@ class MyApp extends StatelessWidget {
     // 手势
     Map<String, Widget Function(BuildContext)> routes_gesture = {
       "test_gesture_detector": (context)=> MyGestureDetector(),
+      "test_ink_well": (context)=> MyInkWell(),
     };
 
     // 路由
@@ -236,6 +238,7 @@ class _HomeDrawer extends StatelessWidget {
   List<Widget> _getGesture(context) {
     return <Widget> [
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_gesture_detector");}, child: Text("Gesture")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ink_well");}, child: Text("InkWell")),
 
     ];
   }
