@@ -22,7 +22,6 @@ import 'demo/functionality/ios_time_picker.dart';
 import 'demo/functionality/time_picker.dart';
 import 'demo/functionality/will_pop_scope.dart';
 import 'demo/gesture/gesture_detector.dart';
-// import 'demo/other/route.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
 import 'demo/gesture/ink_well.dart';
@@ -32,6 +31,7 @@ import 'demo/layout/row.dart';
 import 'demo/layout/column.dart';
 import 'demo/layout/stack.dart';
 import 'demo/container/padding.dart';
+import 'demo/other/sql_lite.dart';
 import 'demo/roll/grid_view.dart';
 import 'demo/basic_component/image.dart';
 import 'demo/container/container.dart';
@@ -116,9 +116,8 @@ class MyApp extends StatelessWidget {
 
     // 其他组件
     Map<String, Widget Function(BuildContext)> routes_other = {
-      // TODO
+      "test_sq_lite": (context)=> AddUser(),
     };
-
 
     //注册路由表
     Map<String, Widget Function(BuildContext)> routes = {};
@@ -263,7 +262,10 @@ class _HomeDrawer extends StatelessWidget {
     ];
   }
   List<Widget> _getOther(context) {
-    return <Widget> [];
+    return <Widget> [
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_sq_lite");}, child: Text("SqLite存数据")),
+
+    ];
   }
 
   List<Widget> _expandChildFormatter(List<Widget> oldList) {
