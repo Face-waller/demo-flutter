@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class AddUser extends StatefulWidget {
@@ -132,9 +131,8 @@ class DBProvider {
     var _db = await getDb;
     return await _db!.insert('User', user.toJson());
   }
-
   Future<Database> _initDB() async {
-    Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    Directory documentsDirectory = (await getDatabasesPath()) as Directory;
     String path = join(documentsDirectory.path, 'dbName');
     return await openDatabase(
         path,
