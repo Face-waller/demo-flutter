@@ -48,7 +48,7 @@ class _MySimpleStoreState extends State<MySimpleStore> {
           }, child: Text('存数据')),
           ElevatedButton(onPressed: (){
             print(_readData());
-          }, child: Text('读数剧')),
+          }, child: Text('读数据')),
         ],
       ),
     );

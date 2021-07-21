@@ -33,6 +33,7 @@ import 'demo/layout/row.dart';
 import 'demo/layout/column.dart';
 import 'demo/layout/stack.dart';
 import 'demo/container/padding.dart';
+import 'demo/other/sql_lite.dart';
 import 'demo/roll/grid_view.dart';
 import 'demo/basic_component/image.dart';
 import 'demo/container/container.dart';
@@ -124,7 +125,7 @@ class MyApp extends StatelessWidget {
 
     // 其他组件
     Map<String, Widget Function(BuildContext)> routes_other = {
-      // "test_sq_lite": (context)=> AddUser(),
+      "test_sq_lite": (context)=> AddUser(),
     };
 
     //注册路由表
@@ -279,6 +280,7 @@ class _HomeDrawer extends StatelessWidget {
   }
   List<Widget> _getOther(context) {
     return <Widget> [
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_sq_lite");}, child: Text("SqlLite")),
 
     ];
   }
