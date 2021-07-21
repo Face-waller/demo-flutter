@@ -19,6 +19,7 @@ import 'demo/container/transform.dart';
 import 'demo/functionality/date_picker.dart';
 import 'demo/functionality/ios_date_picker.dart';
 import 'demo/functionality/ios_time_picker.dart';
+import 'demo/functionality/simple_dialog.dart';
 import 'demo/functionality/time_picker.dart';
 import 'demo/functionality/will_pop_scope.dart';
 import 'demo/gesture/gesture_detector.dart';
@@ -32,7 +33,6 @@ import 'demo/layout/row.dart';
 import 'demo/layout/column.dart';
 import 'demo/layout/stack.dart';
 import 'demo/container/padding.dart';
-import 'demo/other/sql_lite.dart';
 import 'demo/roll/grid_view.dart';
 import 'demo/basic_component/image.dart';
 import 'demo/container/container.dart';
@@ -89,6 +89,8 @@ class MyApp extends StatelessWidget {
       "test_time_picker": (context)=> MyTimePicker(),
       "test_ios_date_picker": (context)=> MyIosDatePicker(),
       "test_ios_time_picker": (context)=> MyIosTimePicker(),
+      "test_dialog": (context)=> SimpleDialogDemo(),
+
     };
 
     // 手势
@@ -122,7 +124,7 @@ class MyApp extends StatelessWidget {
 
     // 其他组件
     Map<String, Widget Function(BuildContext)> routes_other = {
-      "test_sq_lite": (context)=> AddUser(),
+      // "test_sq_lite": (context)=> AddUser(),
     };
 
     //注册路由表
@@ -237,7 +239,8 @@ class _HomeDrawer extends StatelessWidget {
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_date_picker");}, child: Text("DatePicker")),
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_time_picker");}, child: Text("TimePicker")),
       ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_date_picker");}, child: Text("IosDatePicker")),
-      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_time_picker");}, child: Text("IosTimePicker"))
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_ios_time_picker");}, child: Text("IosTimePicker")),
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_dialog");}, child: Text("Dialog")),
 
     ];
   }
@@ -276,7 +279,6 @@ class _HomeDrawer extends StatelessWidget {
   }
   List<Widget> _getOther(context) {
     return <Widget> [
-      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_sq_lite");}, child: Text("SqLite存数据")),
 
     ];
   }
@@ -369,8 +371,6 @@ class _HomeDrawer extends StatelessWidget {
     );
   }
 }
-
-
 
 void main(){
   runApp(MyApp());
