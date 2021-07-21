@@ -61,8 +61,7 @@ class CirclePageRoute extends PageRoute {
   final bool maintainState;
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return AnimatedBuilder(
       animation: animation,
       builder: (context, child) {

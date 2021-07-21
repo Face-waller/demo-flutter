@@ -21,8 +21,7 @@ class _MyGroupAnimationState extends State<MyGroupAnimation> with SingleTickerPr
   
   @override
   void initState() {
-    _animationController =
-    AnimationController(duration: Duration(seconds: 5), vsync: this)..addListener((){
+    _animationController = AnimationController(duration: Duration(seconds: 5), vsync: this)..addListener((){
       setState(() {
       });
     });
