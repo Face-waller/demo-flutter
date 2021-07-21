@@ -26,6 +26,7 @@ import 'demo/gesture/gesture_detector.dart';
 import 'demo/basic_component/bottom_navigation_bar.dart';
 import 'demo/basic_component/stateful_widget.dart';
 import 'demo/gesture/ink_well.dart';
+import 'demo/io/simple.dart';
 import 'demo/layout/wrap.dart';
 import 'demo/basic_component/button.dart';
 import 'demo/layout/row.dart';
@@ -114,6 +115,11 @@ class MyApp extends StatelessWidget {
       "test_peacock": (context)=> MyPeacock(),
     };
 
+    // IO
+    Map<String, Widget Function(BuildContext)> routes_io = {
+      "test_io_simple": (context)=> MySimpleStore(),
+    };
+
     // 其他组件
     Map<String, Widget Function(BuildContext)> routes_other = {
       // TODO
@@ -131,6 +137,7 @@ class MyApp extends StatelessWidget {
     routes.addAll(routes_gesture);
     routes.addAll(routes_route);
     routes.addAll(routes_animation);
+    routes.addAll(routes_io);
     routes.addAll(routes_other);
 
     routes.addAll({
@@ -262,6 +269,12 @@ class _HomeDrawer extends StatelessWidget {
 
     ];
   }
+  List<Widget> _getIo(context) {
+    return <Widget> [
+      ElevatedButton(onPressed: () {Navigator.pushNamed(context, "test_io_simple");}, child: Text("简单持久化")),
+
+    ];
+  }
   List<Widget> _getOther(context) {
     return <Widget> [];
   }
@@ -335,6 +348,12 @@ class _HomeDrawer extends StatelessWidget {
                 backgroundColor: Colors.black54,
                 title: Text('动画组件'),
                 children: _expandChildFormatter(_getAnimation(context)),
+              ),
+              ExpansionTile(
+                initiallyExpanded: true,
+                backgroundColor: Colors.black54,
+                title: Text('持久化'),
+                children: _expandChildFormatter(_getIo(context)),
               ),
               ExpansionTile(
                 initiallyExpanded: true,
